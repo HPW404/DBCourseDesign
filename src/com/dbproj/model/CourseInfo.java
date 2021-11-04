@@ -7,6 +7,8 @@ public class CourseInfo {
 	private int collegeId;
 	private int score;				// ังทึ
 	
+	public CourseInfo() { }
+	
 	public int getCourseId() { return this.courseId; }
 	public void setCourseId(int courseId) { this.courseId = courseId; }
 	

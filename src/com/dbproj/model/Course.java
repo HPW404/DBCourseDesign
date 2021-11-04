@@ -12,6 +12,8 @@ public class Course {
 	private String classroom;	// 上课教室
 	private int status;			// 是否有效
 	
+	public Course() { }
+	
 	public int getCourseId() { return this.courseId; }
 	public void setCourseId(int courseId) { this.courseId = courseId; }
 	

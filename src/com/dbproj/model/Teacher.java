@@ -10,6 +10,8 @@ public class Teacher {
 	private String grade;			// 入职时间
 	private int collegeId;			// 学院编号
 	
+	public Teacher() { }
+	
 	public int getTeacherId() { return this.teacherId; }
 	public void setTeacherId(int teacherId) { this.teacherId = teacherId; }
 	

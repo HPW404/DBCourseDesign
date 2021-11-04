@@ -9,6 +9,8 @@ public class Graduate {
 	private int collegeId;
 	private String graduateTime;
 	
+	public Graduate() { }
+	
 	public int getUserId() { return this.userId; }
 	public void setUserId(int userId) { this.userId = userId; }
 	

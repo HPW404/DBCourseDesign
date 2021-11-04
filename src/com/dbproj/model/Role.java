@@ -5,6 +5,8 @@ public class Role {
 	private String roleName;
 	private String permission;
 	
+	public Role() { }
+	
 	public int getRoleId() { return this.roleId; }
 	public void setRoleId(int roleId) { this.roleId = roleId; }
 	

@@ -6,6 +6,8 @@ public class SelectedCourse {
 	private int mark;
 	private String examTime;
 	
+	public SelectedCourse() { }
+	
 	public int getCourseId() { return this.courseId; }
 	public void setCourseId(int courseId) { this.courseId = courseId; }
 	

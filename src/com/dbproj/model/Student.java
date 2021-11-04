@@ -12,6 +12,8 @@ public class Student {
 	private String grade;		// 入学年级
 	private int collegeId;		// 学院ID
 	
+	public Student() { }
+	
 	public int getStuId() { return this.stuId; }
 	public void setStuId(int stuId) { this.stuId = stuId; }
 	

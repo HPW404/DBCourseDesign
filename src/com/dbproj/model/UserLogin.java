@@ -6,6 +6,8 @@ public class UserLogin {
 	private String password;
 	private int role;
 	
+	public UserLogin() { }
+	
 	public int getUserId() { return this.userId; }
 	public void setUserId(int userId) { this.userId = userId; }
 	
