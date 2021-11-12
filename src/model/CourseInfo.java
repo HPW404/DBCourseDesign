@@ -7,7 +7,16 @@ public class CourseInfo {
 	private int collegeId;
 	private int score;				// ังทึ
 	
-	public CourseInfo() { }
+	public CourseInfo() { super(); }
+
+	public CourseInfo(int courseId, int courseWeek, String courseType, int collegeId, int score) {
+		super();
+		this.courseId = courseId;
+		this.courseWeek = courseWeek;
+		this.courseType = courseType;
+		this.collegeId = collegeId;
+		this.score = score;
+	}
 	
 	public int getCourseId() { return this.courseId; }
 	public void setCourseId(int courseId) { this.courseId = courseId; }

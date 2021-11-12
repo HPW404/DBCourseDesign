@@ -1,12 +1,12 @@
-package dao;
+package service;
 
 import java.util.List;
 
 import model.Course;
 import model.PageBean;
 
-public interface CourseDao {
-	// 添加课程
+public interface CourseService {
+	// 增加课程
 	int addCourse(Course course);
 	
 	// 删除课程
@@ -21,7 +21,7 @@ public interface CourseDao {
 	// 查看所有课程
 	List<Course> findAll();
 	
-	// 查看一个课程
+	// 查看单个课程
 	List<Course> findOne(int courseId);
 	
 	// 分页查询课程

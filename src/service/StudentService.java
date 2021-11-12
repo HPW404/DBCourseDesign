@@ -1,12 +1,12 @@
-package dao;
+package service;
 
 import java.util.List;
 
 import model.Student;
 import model.PageBean;
 
-public interface StudentDao {
-	// 添加学生
+public interface StudentService {
+	// 增加学生
 	int addStudent(Student student, String birthYear, String grade);
 	
 	// 删除学生
@@ -15,12 +15,12 @@ public interface StudentDao {
 	// 编辑学生
 	int editStudent(Student student, String birthYear, String grade);
 	
-	// 查询所有学生
+	// 查看所有学生
 	List<Student> findAll();
 	
-	// 查询某一个学生
+	// 查询单个学生
 	List<Student> findOne(int stuId);
 	
-	// 实现分页查询
+	// 分页查询学生
 	PageBean stuPageList(int pageNo, int pageCount);
 }

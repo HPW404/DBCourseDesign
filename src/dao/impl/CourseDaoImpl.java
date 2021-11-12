@@ -101,7 +101,7 @@ public class CourseDaoImpl implements CourseDao {
 	}
 		
 	// ·ÖÒ³²éÑ¯¿Î³Ì
-	public PageBean courseListPage(int pageNo, int pageCount) {
+	public PageBean coursePageList(int pageNo, int pageCount) {
 		int totalCount = 0;
 		List<Course> list = new ArrayList<Course>();
 		String sql = "select * from course limit " + ((pageNo-1) * pageCount) + "," + pageCount;
@@ -125,6 +125,7 @@ public class CourseDaoImpl implements CourseDao {
 			pageBean = new PageBean(list, totalCount, pageNo, pageCount);
 
 		} catch (SQLException e) {
+			conn.close();
 			e.printStackTrace();
 		}
 		return pageBean;

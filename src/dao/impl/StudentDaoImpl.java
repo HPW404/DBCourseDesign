@@ -37,7 +37,7 @@ public class StudentDaoImpl implements StudentDao {
 	// 编辑学生
 	public int editStudent(Student student, String birthYear, String grade) {
 		String sql = "update student set userName = '" + student.getStuName()
-				+ "', collegeID = " + student.getCollegeId();
+				+ "', where collegeID = " + student.getCollegeId();
 		int rs = conn.query(sql);
 		return rs;
 	}
@@ -87,7 +87,7 @@ public class StudentDaoImpl implements StudentDao {
 	}
 	
 	// 分页查询学生
-	public PageBean stuListPage(int pageNo, int pageCount) {
+	public PageBean stuPageList(int pageNo, int pageCount) {
 		int totalCount = 0;
 		List<Student> list = new ArrayList<Student>();
 		String sql = "select * from student limit " + ((pageNo - 1) * pageCount) + "," + pageCount;

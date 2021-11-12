@@ -61,7 +61,7 @@ public class UserDaoImpl implements UserDao {
 	// 查看所有用户
 	public List<UserLogin> findAll() {
 		List<UserLogin> list = new ArrayList<UserLogin>();
-		String sql = "select userID, userName, roleName from userlogin, role where userlogin.role = role.roleID";
+		String sql = "select * from userlogin";
 		ResultSet rs = conn.find(sql);
 		try {
 			while(rs.next()) {
@@ -92,7 +92,8 @@ public class UserDaoImpl implements UserDao {
 				userLogin = new UserLogin(userID, userName, password, role);
 				list.add(userLogin);
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
+			conn.close();
 			e.printStackTrace();
 		}
 		return list;

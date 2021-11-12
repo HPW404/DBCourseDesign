@@ -6,7 +6,15 @@ public class SelectedCourse {
 	private int mark;
 	private String examTime;
 	
-	public SelectedCourse() { }
+	public SelectedCourse() { super(); }
+	
+	public SelectedCourse(int courseId, int stuId, int mark, String examTime) {
+		super();
+		this.courseId = courseId;
+		this.stuId = stuId;
+		this.mark = mark;
+		this.examTime = examTime;
+	}
 	
 	public int getCourseId() { return this.courseId; }
 	public void setCourseId(int courseId) { this.courseId = courseId; }
