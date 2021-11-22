@@ -24,6 +24,9 @@ public interface CourseDao {
 	// 查看一个课程
 	List<Course> findOne(int courseId);
 	
+	// 选择一个课程
+	Course selectCourse(Course course);
+	
 	// 分页查询课程
 	PageBean coursePageList(int pageNo, int pageCount);
 }

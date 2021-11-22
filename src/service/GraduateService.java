@@ -15,6 +15,9 @@ public interface GraduateService {
 	// 编辑毕业生
 	int editGraduate(Graduate graduate, String birthYear, String grade, String graduateTime);
 	
+	// 选择毕业生
+	Graduate selectGraduate(Graduate graduate);
+	
 	// 查看所有毕业生
 	List<Graduate> findAll();
 	

@@ -18,37 +18,52 @@ public class CourseDaoImpl implements CourseDao {
 	// 添加课程
 	public int addCourse(Course course) {
 		String sql = "insert into course(courseId, courseName, teacherId, courseTime, classroom, status) values ("
-				+ course.getCourseId() + ", '"
-				+ course.getCourseName() + "', "
-				+ course.getTeacherId() + ", '"
-				+ course.getCourseTime() + "', '"
-				+ course.getClassroom() + "', "
-				+ course.getStatus() + ")";
+				+ course.getCourseId() 
+				+ ", '"
+				+ course.getCourseName() 
+				+ "', "
+				+ course.getTeacherId() 
+				+ ", '"
+				+ course.getCourseTime() 
+				+ "', '"
+				+ course.getClassroom() 
+				+ "', "
+				+ course.getStatus() 
+				+ ")";
 		int rs = conn.query(sql);
 		return rs;
 	}
 	
 	// 删除课程
 	public int deleteCourse(int courseId) {
-		String sql = "delete from course where courseID = " + courseId;
+		String sql = "delete from course where courseID = " 
+				+ courseId;
 		int rs = conn.query(sql);
 		return rs;
 	}
 	
 	// 编辑课程
 	public int editCourse(Course course) {
-		String sql = "update course set courseName = '" + course.getCourseName()
-				+ "', teacherID = " + course.getTeacherId()
-				+ ", courseTime = '" + course.getCourseTime()
-				+ "', classroom = '" + course.getClassroom()
-				+ "' where courseID = " + course.getCourseId();
+		String sql = "update course set courseName = '" 
+				+ course.getCourseName()
+				+ "', teacherID = " 
+				+ course.getTeacherId()
+				+ ", courseTime = '" 
+				+ course.getCourseTime()
+				+ "', classroom = '" 
+				+ course.getClassroom()
+				+ "' where courseID = " 
+				+ course.getCourseId();
 		int rs = conn.query(sql);
 		return rs;
 	}
 	
 	// 改变课程状态
 	public int banCourse(Course course, int status) {
-		String sql = "update course set status = '" + status + "' where courseID = " + course.getCourseId();
+		String sql = "update course set status = '" 
+				+ status 
+				+ "' where courseID = " 
+				+ course.getCourseId();
 		int rs = conn.query(sql);
 		return rs;
 	}
@@ -99,12 +114,39 @@ public class CourseDaoImpl implements CourseDao {
 		}
 		return list;
 	}
-		
+	
+	// 选择一门课程
+	public Course selectCourse(Course course) {
+		String sql = "select * from course where courseName = '"
+				+ course.getCourseName() 
+				+ "' and teacherID = "
+				+ course.getTeacherId();
+		Course c = null;
+		ResultSet rs = conn.find(sql);
+		try {
+			while(rs.next()) {
+				int courseId = rs.getInt("couseID");
+				String courseName = rs.getString("courseName");
+				int teacherId = rs.getInt("teacherID");
+				String courseTime = rs.getString("courseTime");
+				String classroom = rs.getString("classroom");
+				int status = rs.getInt("status");
+				c = new Course(courseId, courseName, teacherId, courseTime, classroom, status);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return c;
+	}
+	
 	// 分页查询课程
 	public PageBean coursePageList(int pageNo, int pageCount) {
 		int totalCount = 0;
 		List<Course> list = new ArrayList<Course>();
-		String sql = "select * from course limit " + ((pageNo-1) * pageCount) + "," + pageCount;
+		String sql = "select * from course limit " 
+				+ ((pageNo-1) * pageCount) 
+				+ "," 
+				+ pageCount;
 		String sqlCount = "select count(*) from course";
 		ResultSet rs = conn.find(sql);
 		try {

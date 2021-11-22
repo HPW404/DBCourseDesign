@@ -25,6 +25,11 @@ public class CourseInfoServiceImpl implements CourseInfoService {
 		return rs;
 	}
 	
+	public CourseInfo selectCourseInfo(CourseInfo courseInfo) {
+		CourseInfo rs = courseInfoDaoImpl.selectCourseInfo(courseInfo);
+		return rs;
+	}
+	
 	public List<CourseInfo> findAll() {
 		List<CourseInfo> rs = courseInfoDaoImpl.findAll();
 		return rs;

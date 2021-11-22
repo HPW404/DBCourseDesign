@@ -17,23 +17,34 @@ public class GraduateDaoImpl implements GraduateDao {
 	// 添加毕业生
 	public int addGraduate(Graduate graduate, String birthYear, String grade, String graduateTime) {
 		String sql = "insert into graduate(userID, userName, sex, birthYear, grade, collegeID, graduateTime) values("
-				+ graduate.getUserId() + ", '"
-				+ graduate.getUserName() + "', '"
-				+ graduate.getSex() + "', Date('"
-				+ birthYear + "'), Date('"
-				+ grade + "'), "
-				+ graduate.getCollegeId() + ", Date('"
-				+ graduateTime + "'))";
+				+ graduate.getUserId() 
+				+ ", '"
+				+ graduate.getUserName() 
+				+ "', '"
+				+ graduate.getSex() 
+				+ "', Date('"
+				+ birthYear 
+				+ "'), Date('"
+				+ grade 
+				+ "'), "
+				+ graduate.getCollegeId() 
+				+ ", Date('"
+				+ graduateTime 
+				+ "'))";
 		int rs = conn.query(sql);
 		return rs;
 	}
 	
 	// 编辑毕业生
 	public int editGraduate(Graduate graduate, String birthYear, String grade, String graduateTime) {
-		String sql = "update graduate set userName = " + graduate.getUserName()
-				+ ", birthYear = " + birthYear
-				+ ", grade = " + grade
-				+ ", graduateTime = " + graduateTime;
+		String sql = "update graduate set userName = " 
+				+ graduate.getUserName()
+				+ ", birthYear = " 
+				+ birthYear
+				+ ", grade = " 
+				+ grade
+				+ ", graduateTime = " 
+				+ graduateTime;
 		int rs = conn.query(sql);
 		return rs;
 	}
@@ -43,6 +54,29 @@ public class GraduateDaoImpl implements GraduateDao {
 		String sql = "delete from graduate where userID = " + userId;
 		int rs = conn.query(sql);
 		return rs;
+	}
+	
+	// 选择毕业生
+	public Graduate selectGraduate(Graduate graduate) {
+		String sql = "select * from graduate where userID = "
+				+ graduate.getUserId();
+		Graduate g = null;
+		ResultSet rs = conn.find(sql);
+		try {
+			while(rs.next()) {
+				int userId = rs.getInt("userID");
+				String userName = rs.getString("userName");
+				String sex = rs.getString("sex");
+				Date birthYear = rs.getDate("birthYear");
+				Date grade = rs.getDate("grade");
+				int collegeId = rs.getInt("collegeID");
+				Date graduateTime = rs.getDate("graduatetime");
+				g = new Graduate(userId, userName, sex, birthYear, grade, collegeId, graduateTime);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return g;
 	}
 	
 	// 查看全部毕业生
@@ -94,7 +128,10 @@ public class GraduateDaoImpl implements GraduateDao {
 	public PageBean graduatePageList(int pageNo, int pageCount) {
 		List<Graduate> list = new ArrayList<Graduate>();
 		int totalCount = 0;
-		String sql = "select * from graduate limit " + ((pageNo - 1) * pageCount) + ", " + pageCount;
+		String sql = "select * from graduate limit " 
+				+ ((pageNo - 1) * pageCount) 
+				+ ", " 
+				+ pageCount;
 		String sqlCount = "select count(*) from guaduate";
 		ResultSet rs = conn.find(sql);
 		try {

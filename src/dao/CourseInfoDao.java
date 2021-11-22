@@ -15,6 +15,9 @@ public interface CourseInfoDao {
 	// 编辑课程信息
 	int editCourseInfo(CourseInfo courseInfo);
 	
+	// 选择课程信息
+	CourseInfo selectCourseInfo(CourseInfo courseInfo);
+	
 	// 查看所有课程的课程信息
 	List<CourseInfo> findAll();
 	

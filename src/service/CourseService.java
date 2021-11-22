@@ -24,6 +24,9 @@ public interface CourseService {
 	// 查看单个课程
 	List<Course> findOne(int courseId);
 	
+	// 选择一门课程
+	Course selectCourse(Course course);
+	
 	// 分页查询课程
 	PageBean coursePageList(int pageNo, int pageCount);
 }

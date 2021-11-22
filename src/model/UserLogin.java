@@ -16,6 +16,13 @@ public class UserLogin {
 		this.role = role;
 	}
 	
+	public UserLogin(int userId, String password, int role) {
+		super();
+		this.userId = userId;
+		this.password = password;
+		this.role = role;
+	}
+	
 	public int getUserId() { return this.userId; }
 	public void setUserId(int userId) { this.userId = userId; }
 	public void setUserId(String userId) { this.userId = Integer.valueOf("userId"); }

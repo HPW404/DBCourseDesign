@@ -21,7 +21,10 @@ public class EmpBiz {
 		String sqlCount = "select count(*) from userlogin";
 		String sql = "select userID, userName, password, role, roleName from userlogin, role" 
 				+ " where userlogin.role=role.roleID " 
-				+ "limit " + ((pageNo - 1) * pageCount) + "," + pageCount;
+				+ "limit " 
+				+ ((pageNo - 1) * pageCount) 
+				+ "," 
+				+ pageCount;
 		rs = conn.find(sql);
 		try {
 			while(rs.next()){

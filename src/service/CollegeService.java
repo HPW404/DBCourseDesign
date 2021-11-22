@@ -15,6 +15,9 @@ public interface CollegeService {
 	// 编辑学院
 	int editCollege(College college);
 	
+	// 选择学院
+	College selectCollege(College college);
+	
 	// 查看所有学院
 	List<College> findAll();
 	

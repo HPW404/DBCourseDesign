@@ -40,6 +40,11 @@ public class CourseServiceImpl implements CourseService {
 		return rs;
 	}
 	
+	public Course selectCourse(Course course) {
+		Course rs = courseDaoImpl.selectCourse(course);
+		return rs;
+	}
+	
 	public PageBean coursePageList(int pageNo, int pageCount) {
 		PageBean rs = courseDaoImpl.coursePageList(pageNo, pageCount);
 		return rs;

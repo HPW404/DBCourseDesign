@@ -28,7 +28,8 @@ public class CollegeDaoImpl implements CollegeDao {
 	
 	// 删除学院
 	public int deleteCollege(int collegeId) {
-		String sql = "delete from college where collegeID = " + collegeId;
+		String sql = "delete from college where collegeID = " 
+				+ collegeId;
 		int rs = conn.query(sql);
 		return rs;
 	}
@@ -36,7 +37,8 @@ public class CollegeDaoImpl implements CollegeDao {
 	// 编辑学院
 	public int editCollege(College college) {
 		String sql = "update college set collegeName = '" 
-				+ college.getCollegeName() + "' where collegeID = "
+				+ college.getCollegeName() 
+				+ "' where collegeID = "
 				+ college.getCollegeId();
 		int rs = conn.query(sql);
 		return rs;
@@ -60,10 +62,32 @@ public class CollegeDaoImpl implements CollegeDao {
 		return list;
 	}
 	
+	// 选择学院
+	public College selectCollege(College college) {
+		String sql = "select * from college where collegeID = "
+				+ college.getCollegeId() 
+				+ " and collegeName = '"
+				+ college.getCollegeName() 
+				+ "'";
+		College c = null;
+		ResultSet rs = conn.find(sql);
+		try {
+			while(rs.next()) {
+				int collegeId = rs.getInt("collegeID");
+				String collegeName = rs.getString("collegeName");
+				c = new College(collegeId, collegeName);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return c;
+	}
+	
 	// 查询某个学院
 	public List<College> findOne(int collegeId) {
 		List<College> list = new ArrayList<College>();
-		String sql = "select * from college where collegeID = " + collegeId;
+		String sql = "select * from college where collegeID = " 
+				+ collegeId;
 		ResultSet rs = conn.find(sql);
 		try {
 			while(rs.next()) {
@@ -82,7 +106,10 @@ public class CollegeDaoImpl implements CollegeDao {
 	public PageBean collegePageList(int pageNo, int pageCount) {
 		List<College> list = new ArrayList<College>();
 		int totalCount = 0;
-		String sql = "select * from college limit " + ((pageNo - 1) * pageCount) + ", " + pageCount;
+		String sql = "select * from college limit " 
+				+ ((pageNo - 1) * pageCount) 
+				+ ", " 
+				+ pageCount;
 		String sqlCount = "select count(*) from college";
 		ResultSet rs = conn.find(sql);
 		try {

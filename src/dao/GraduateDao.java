@@ -15,6 +15,9 @@ public interface GraduateDao {
 	// 删除毕业生
 	int deleteGraduate(int userId);
 	
+	// 选择毕业生
+	Graduate selectGraduate(Graduate graduate);
+	
 	// 查看所有毕业生
 	List<Graduate> findAll();
 	

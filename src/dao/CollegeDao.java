@@ -15,6 +15,9 @@ public interface CollegeDao {
 	// 编辑学院
 	int editCollege(College college);
 	
+	// 选择一个学院
+	College selectCollege(College college);
+	
 	// 查看所有学院
 	List<College> findAll();
 	

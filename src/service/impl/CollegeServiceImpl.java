@@ -25,6 +25,11 @@ public class CollegeServiceImpl implements CollegeService {
 		return rs;
 	}
 	
+	public College selectCollege(College college) {
+		College rs = collegeDaoImpl.selectCollege(college);
+		return rs;
+	}
+	
 	public List<College> findAll() {
 		List<College> rs = collegeDaoImpl.findAll();
 		return rs;

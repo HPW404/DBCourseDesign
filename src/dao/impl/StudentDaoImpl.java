@@ -17,12 +17,18 @@ public class StudentDaoImpl implements StudentDao {
 	// 添加学生
 	public int addStudent(Student student, String birthYear, String grade) {
 		String sql = "insert into student(userID, userName, sex, birthYear, grade, collegeID) values ("
-				+ student.getStuId() + ", '"
-				+ student.getStuName() + "', '"
-				+ student.getSex() + "', Date('"
-				+ student.getBirthYear() + "'), Date('"
-				+ student.getGrade() + "'), "
-				+ student.getCollegeId() + ")";
+				+ student.getStuId() 
+				+ ", '"
+				+ student.getStuName() 
+				+ "', '"
+				+ student.getSex() 
+				+ "', Date('"
+				+ student.getBirthYear() 
+				+ "'), Date('"
+				+ student.getGrade() 
+				+ "'), "
+				+ student.getCollegeId() 
+				+ ")";
 		int rs = conn.query(sql);
 		return rs;
 	}
@@ -36,8 +42,10 @@ public class StudentDaoImpl implements StudentDao {
 	
 	// 编辑学生
 	public int editStudent(Student student, String birthYear, String grade) {
-		String sql = "update student set userName = '" + student.getStuName()
-				+ "', where collegeID = " + student.getCollegeId();
+		String sql = "update student set userName = '" 
+				+ student.getStuName()
+				+ "', where collegeID = " 
+				+ student.getCollegeId();
 		int rs = conn.query(sql);
 		return rs;
 	}
@@ -90,7 +98,10 @@ public class StudentDaoImpl implements StudentDao {
 	public PageBean stuPageList(int pageNo, int pageCount) {
 		int totalCount = 0;
 		List<Student> list = new ArrayList<Student>();
-		String sql = "select * from student limit " + ((pageNo - 1) * pageCount) + "," + pageCount;
+		String sql = "select * from student limit " 
+				+ ((pageNo - 1) * pageCount) 
+				+ "," 
+				+ pageCount;
 		String sqlCount = "select count(*) from student";
 		
 		try {

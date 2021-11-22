@@ -25,6 +25,11 @@ public class GraduateServiceImpl implements GraduateService {
 		return rs;
 	}
 	
+	public Graduate selectGraduate(Graduate graduate) {
+		Graduate rs = graduateDaoImpl.selectGraduate(graduate);
+		return rs;
+	}
+	
 	public List<Graduate> findAll() {
 		List<Graduate> rs = graduateDaoImpl.findAll();
 		return rs;

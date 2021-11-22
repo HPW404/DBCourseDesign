@@ -2,6 +2,7 @@ package model;
 
 public class CourseInfo {
 	private int courseId;
+	private String courseName;
 	private int courseWeek;
 	private String courseType;
 	private int collegeId;
@@ -9,9 +10,10 @@ public class CourseInfo {
 	
 	public CourseInfo() { super(); }
 
-	public CourseInfo(int courseId, int courseWeek, String courseType, int collegeId, int score) {
+	public CourseInfo(int courseId, String courseName, int courseWeek, String courseType, int collegeId, int score) {
 		super();
 		this.courseId = courseId;
+		this.courseName = courseName;
 		this.courseWeek = courseWeek;
 		this.courseType = courseType;
 		this.collegeId = collegeId;
@@ -20,6 +22,9 @@ public class CourseInfo {
 	
 	public int getCourseId() { return this.courseId; }
 	public void setCourseId(int courseId) { this.courseId = courseId; }
+	
+	public String getCourseName() { return this.courseName; }
+	public void setCourseName(String courseName) { this.courseName = courseName; }
 	
 	public int getCourseWeek() { return this.courseWeek; }
 	public void setCourseWekk(int courseWeek) { this.courseWeek = courseWeek; }

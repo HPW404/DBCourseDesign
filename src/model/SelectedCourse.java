@@ -1,14 +1,16 @@
 package model;
 
+import java.util.Date;
+
 public class SelectedCourse {
 	private int courseId;
 	private int stuId;
 	private int mark;
-	private String examTime;
+	private Date examTime;
 	
 	public SelectedCourse() { super(); }
 	
-	public SelectedCourse(int courseId, int stuId, int mark, String examTime) {
+	public SelectedCourse(int courseId, int stuId, int mark, Date examTime) {
 		super();
 		this.courseId = courseId;
 		this.stuId = stuId;
@@ -25,6 +27,6 @@ public class SelectedCourse {
 	public int getMark() { return this.mark; }
 	public void setMark(int mark) { this.mark = mark; }
 	
-	public String getExamTime() { return this.examTime; }
-	public void setExamTime(String examTime) { this.examTime = examTime; }
+	public Date getExamTime() { return this.examTime; }
+	public void setExamTime(Date examTime) { this.examTime = examTime; }
 }

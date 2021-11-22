@@ -18,13 +18,14 @@ public class LoginFilter implements Filter {
 		
 	}
 
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) 
+			throws IOException, ServletException {
 		// 获得在下面代码中要用的request,response,session对象
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 		// 获得用户请求的URI
 		String path = request.getRequestURI();
-		String userNum = (String) request.getSession().getAttribute("usernum");
+		String userNum = (String) request.getSession().getAttribute("userId");
 		// 登陆页面无需过滤
 		if(path.indexOf("/login.jsp") > -1 || path.indexOf("/register.jsp") > -1) {
 			chain.doFilter(request, response);
@@ -33,7 +34,7 @@ public class LoginFilter implements Filter {
 		// 判断如果没有取到员工信息,就跳转到登陆页面
 		if (userNum == null || "".equals(userNum)) {
 			// 跳转到登陆页面
-			response.sendRedirect("/StuAMSystem/login/login.jsp");
+			response.sendRedirect("/login/login.jsp");
 		} else {  
 			// 已经登陆,继续此次请求
 			chain.doFilter(request, response);

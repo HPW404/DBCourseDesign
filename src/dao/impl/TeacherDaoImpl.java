@@ -18,14 +18,22 @@ public class TeacherDaoImpl implements TeacherDao {
 	// 添加教师
 	public int addTeacher(Teacher teacher, String birthYear, String grade) {
 		String sql = "insert into teacher(userID, userName, sex, birthYear, degree, title, grade, collegeID) values("
-				+ teacher.getTeacherId() + ", '"
-				+ teacher.getTeacherName() + "', '"
-				+ teacher.getSex() + "', Date('"
-				+ teacher.getBirthYear() + "'), '"
-				+ teacher.getDegree() + "', '"
-				+ teacher.getTitle() + "', Date('"
-				+ teacher.getGrade() + "'), "
-				+ teacher.getCollegeId() + ")";
+				+ teacher.getTeacherId() 
+				+ ", '"
+				+ teacher.getTeacherName() 
+				+ "', '"
+				+ teacher.getSex() 
+				+ "', Date('"
+				+ teacher.getBirthYear() 
+				+ "'), '"
+				+ teacher.getDegree() 
+				+ "', '"
+				+ teacher.getTitle() 
+				+ "', Date('"
+				+ teacher.getGrade() 
+				+ "'), "
+				+ teacher.getCollegeId() 
+				+ ")";
 		int rs = conn.query(sql);
 		return rs;
 	}
@@ -39,12 +47,18 @@ public class TeacherDaoImpl implements TeacherDao {
 	
 	// 编辑教师
 	public int editTeacher(Teacher teacher, String birthYear, String grade) {
-		String sql = "update teacher set userName = " + teacher.getTeacherName()
-				+ ", birthYear = Date('" + birthYear
-				+ "'), degree = '" + teacher.getDegree()
-				+ "', title = '" + teacher.getTitle()
-				+ "', grade = Date('" + grade
-				+ "'), where collegeID = " + teacher.getCollegeId();
+		String sql = "update teacher set userName = " 
+				+ teacher.getTeacherName()
+				+ ", birthYear = Date('" 
+				+ birthYear
+				+ "'), degree = '" 
+				+ teacher.getDegree()
+				+ "', title = '" 
+				+ teacher.getTitle()
+				+ "', grade = Date('" 
+				+ grade
+				+ "'), where collegeID = " 
+				+ teacher.getCollegeId();
 		int rs = conn.query(sql);
 		return rs;
 	}
@@ -101,7 +115,10 @@ public class TeacherDaoImpl implements TeacherDao {
 	public PageBean teacherPageList(int pageNo, int pageCount) {
 		List<Teacher> list = new ArrayList<Teacher>();
 		int totalCount = 0;
-		String sql = "select * from teacher limit " + ((pageNo - 1) * pageCount) + "," + pageCount;
+		String sql = "select * from teacher limit " 
+				+ ((pageNo - 1) * pageCount) 
+				+ "," 
+				+ pageCount;
 		String sqlCount = "select count(*) from teacher";
 		ResultSet rs = conn.find(sql);
 		try {

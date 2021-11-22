@@ -14,8 +14,8 @@ public class UserDaoImpl implements UserDao {
 	private UserLogin userLogin;
 	
 	// 用户登录
-	public UserLogin login(UserLogin userLogin) {
-		String sql = "select * from userlogin where userID = " + userLogin.getUserId();
+	public UserLogin login(UserLogin user) {
+		String sql = "select * from userlogin where userID = " + user.getUserId();
 		ResultSet rs = conn.find(sql);
 		try {
 			while(rs.next()) {
@@ -50,10 +50,14 @@ public class UserDaoImpl implements UserDao {
 	// 添加用户
 	public int addUser(UserLogin userLogin) {
 		String sql = "insert into userlogin(userID, userName, password, role) values("
-				+ userLogin.getUserId() + ", '"
-				+ userLogin.getUserName() + "', '"
-				+ userLogin.getPassword() + "', "
-				+ userLogin.getRole() + ")";
+				+ userLogin.getUserId() 
+				+ ", '"
+				+ userLogin.getUserName() 
+				+ "', '"
+				+ userLogin.getPassword() 
+				+ "', "
+				+ userLogin.getRole() 
+				+ ")";
 		int rs = conn.query(sql);
 		return rs;
 	}
