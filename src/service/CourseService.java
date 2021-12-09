@@ -16,7 +16,7 @@ public interface CourseService {
 	int editCourse(Course course);
 	
 	// 改变课程状态
-	int banCourse(Course course, int status);
+	int banCourse(int courseId, int status);
 	
 	// 查看所有课程
 	List<Course> findAll();

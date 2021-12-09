@@ -7,7 +7,7 @@ import java.util.Date;
  */
 
 public class Student {
-	private int stuId;
+	private String stuId;
 	private String stuName;
 	private String sex;
 	private Date birthYear;	// 出生日期
@@ -16,9 +16,8 @@ public class Student {
 	
 	public Student() { super(); }
 	
-	public Student(int stuId, String stuName, String sex, Date birthYear, Date grade, int collegeId) {
+	public Student( String stuName, String sex, Date birthYear, Date grade, int collegeId) {
 		super();
-		stuId = this.stuId;
 		stuName = this.stuName;
 		sex = this.sex;
 		birthYear = this.birthYear;
@@ -26,8 +25,18 @@ public class Student {
 		collegeId = this.collegeId;
 	}
 	
-	public int getStuId() { return this.stuId; }
-	public void setStuId(int stuId) { this.stuId = stuId; }
+	public Student(String stuId, String stuName, String sex, Date birthYear, Date grade, int collegeId) {
+		super();
+		 this.stuId=stuId;
+		this.stuName=stuName;
+		this.sex=sex;
+		this.birthYear=birthYear;
+		 this.grade=grade;
+		 this.collegeId=collegeId;
+	}
+	
+	public String getStuId() { return this.stuId; }
+	public void setStuId(String stuId) { this.stuId = stuId; }
 	
 	public String getStuName() { return this.stuName; }
 	public void setStuName(String stuName) { this.stuName = stuName; }
@@ -38,7 +47,7 @@ public class Student {
 	public Date getBirthYear() { return this.birthYear; }
 	public void setBirthYear(Date birthYear) { this.birthYear = birthYear; }
 	
-	public Date getGrade() { return this.grade; }
+	public Date getGrade() { return grade; }
 	public void setGrade(Date grade) { this.grade = grade; }
 	
 	public int getCollegeId() { return this.collegeId; }

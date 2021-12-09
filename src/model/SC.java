@@ -8,6 +8,7 @@ public class SC {
 	private int mark;
 	
 	public SC() { super(); }
+	
 	public SC(int studentId, String studentName, int courseId, String courseName, int mark) {
 		super();
 		this.studentId = studentId;
@@ -15,6 +16,13 @@ public class SC {
 		this.courseId = courseId;
 		this.courseName = courseName;
 		this.mark = mark;
+	}
+	
+	public SC(int studentId, String courseName, String studentName) {
+		super();
+		this.courseName = courseName;
+		this.studentId = studentId;
+		this.studentName = studentName;
 	}
 	
 	public int getStudentId() { return this.studentId; }

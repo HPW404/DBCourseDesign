@@ -10,6 +10,12 @@ public class SelectedCourse {
 	
 	public SelectedCourse() { super(); }
 	
+	public SelectedCourse(int courseId, int stuId) {
+		super();
+		this.courseId = courseId;
+		this.stuId = stuId;
+	}
+	
 	public SelectedCourse(int courseId, int stuId, int mark, Date examTime) {
 		super();
 		this.courseId = courseId;
